@@ -20,7 +20,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @Table
-public class Parameters {
+public class Parameter {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

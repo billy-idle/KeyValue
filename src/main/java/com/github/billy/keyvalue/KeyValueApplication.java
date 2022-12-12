@@ -1,7 +1,7 @@
 package com.github.billy.keyvalue;
 
-import com.github.billy.keyvalue.repository.Parameters;
-import com.github.billy.keyvalue.repository.ParametersRepository;
+import com.github.billy.keyvalue.repository.Parameter;
+import com.github.billy.keyvalue.repository.ParameterRepository;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,20 +21,20 @@ public class KeyValueApplication {
   }
 
   @Bean
-  CommandLineRunner runner(ParametersRepository repository) {
+  CommandLineRunner runner(ParameterRepository repository) {
     return args -> {
-      Parameters parameters = new Parameters();
+      Parameter parameter = new Parameter();
       Set<String> values = new HashSet<>();
       values.add("gguzman@emeal.nttdata.com");
       values.add("oca2020@protonmail.com");
       values.add("oca2020@protonmail.com");
-      parameters.setKey("addresses");
-      parameters.setValues(values);
-      repository.save(parameters);
+      parameter.setKey("addresses");
+      parameter.setValues(values);
+      repository.save(parameter);
 
-      List<Parameters> parametersFound = new ArrayList<>();
-      parametersFound = repository.findAll();
-      for (Parameters p : parametersFound) {
+      List<Parameter> parameterFound = new ArrayList<>();
+      parameterFound = repository.findAll();
+      for (Parameter p : parameterFound) {
         log.info("Parameter: {}", p);
 /*        for (String s : p.getValues()) {
           log.info("Value: {}", s);
