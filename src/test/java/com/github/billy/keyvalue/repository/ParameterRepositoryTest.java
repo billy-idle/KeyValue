@@ -55,6 +55,7 @@ class ParameterRepositoryTest {
 //    Key key = Key.of("dontYou");
     log.info("Parameter: {}", parameter);
     repository.saveAll(parameterMapper.toJpaEntity(parameter));
-    assertThat(parameterMapper.toDomain(repository.findByKey(key.getValue()))).isEqualTo(parameter);
+    assertThat(parameterMapper.toDomain(repository.findByKey(key.getValue()))).isEqualTo(
+        parameter);
   }
 }
